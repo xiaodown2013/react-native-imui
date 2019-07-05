@@ -19,7 +19,7 @@ public class IMUILiveVideoMessageCell: IMUIBaseMessageCell {
     bubbleView.addSubview(self.videoView)
   }
   
-  required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
@@ -36,7 +36,7 @@ public class IMUILiveVideoMessageCell: IMUIBaseMessageCell {
     self.layoutVideo(with: message.mediaFilePath())
     let layout = message.layout as! IMUIMessageCellLayout
     let inset = layout.bubbleContentInset
-    self.videoView.frame = CGRect(origin: CGPoint.zero, size: layout.bubbleFrame.size).inset(by: UIEdgeInsets.init(top: inset.top, left: inset.left, bottom: inset.bottom, right: inset.right))
+    self.videoView.frame = UIEdgeInsetsInsetRect(CGRect(origin: CGPoint.zero, size: layout.bubbleFrame.size), UIEdgeInsets.init(top: inset.top, left: inset.left, bottom: inset.bottom, right: inset.right))
     
   }
   

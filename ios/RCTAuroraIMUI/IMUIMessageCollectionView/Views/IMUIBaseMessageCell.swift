@@ -219,7 +219,7 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocal,Me
             return 0
         }
         let size = CGSize(width:CGFloat(MAXFLOAT), height:CGFloat(MAXFLOAT))
-        let rect = text.boundingRect(with: size, options:.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context:nil)
+        let rect = text.boundingRect(with: size, options:.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context:nil)
         
         return rect.size.width+10
     }
@@ -258,7 +258,7 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocal,Me
     
   @objc func longTapBubbleView(sender : UILongPressGestureRecognizer) {
 
-    if sender.state == UIGestureRecognizer.State.began && self.message?.messageStatus != .sending{
+    if sender.state == UIGestureRecognizerState.began && self.message?.messageStatus != .sending{
         if self.message?.type == .notification || self.message?.type == .redpacketOpen || self.message?.type == .unknown {
             return
         }
@@ -299,7 +299,7 @@ open class IMUIBaseMessageCell: UICollectionViewCell, IMUIMessageCellProtocal,Me
   //长按头像
    @objc func longTapAvatarPress(sender : UILongPressGestureRecognizer){
         if !(self.message?.isOutGoing)! {
-            if sender.state == UIGestureRecognizer.State.began{
+            if sender.state == UIGestureRecognizerState.began{
                 self.delegate?.messageCollectionView?(longTapAvatarPressWithModel: self.message!)
                
             }

@@ -14,7 +14,7 @@ class IMUIImageMessageCell: IMUIBaseMessageCell {
     var myMessage: IMUIMessageModelProtocol?
   override init(frame: CGRect) {
     super.init(frame: frame)
-    imageView.contentMode = UIView.ContentMode.scaleAspectFill
+    imageView.contentMode = .scaleAspectFill
     bubbleView.addSubview(imageView)
     NotificationCenter.default.addObserver(self, selector: #selector(clickDidCompletePic(notification:)), name: NSNotification.Name(rawValue: "RNNeteaseimDidCompletePic"), object: nil)
   }
@@ -40,7 +40,7 @@ class IMUIImageMessageCell: IMUIBaseMessageCell {
     let layout = message.layout
     let inset = layout.bubbleContentInset
     self.myMessage = message
-    self.imageView.frame = CGRect(origin: CGPoint.zero, size: layout.bubbleFrame.size).inset(by: UIEdgeInsets.init(top: inset.top, left: inset.left, bottom: inset.bottom, right: inset.right))
+    self.imageView.frame = UIEdgeInsetsInsetRect(CGRect(origin: CGPoint.zero, size: layout.bubbleFrame.size), UIEdgeInsets.init(top: inset.top, left: inset.left, bottom: inset.bottom, right: inset.right));
 //    self.imageView.frame = UIEdgeInsetsInsetRect(CGRect(origin: CGPoint.zero, size: layout.bubbleFrame.size), layout.bubbleContentInset)
     let image = UIImage(contentsOfFile: message.mediaFilePath())
     if image != nil {

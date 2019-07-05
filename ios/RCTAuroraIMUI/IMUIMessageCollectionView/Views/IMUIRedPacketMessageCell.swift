@@ -19,7 +19,7 @@ class IMUIRedPacketMessageCell: IMUIBaseMessageCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundImg.image = UIImage.init(named: "redPacket")
-        backgroundImg.contentMode = UIView.ContentMode.scaleAspectFill
+        backgroundImg.contentMode = .scaleAspectFill
         contentLable.textColor = UIColor.white
         contentLable.font = UIFont.systemFont(ofSize: (screenW * 15 / 375))
         tipsLabel.textColor = UIColor.white
@@ -76,7 +76,7 @@ class IMUIRedPacketMessageCell: IMUIBaseMessageCell {
         }
         
         let size = CGSize(width:fixedWidth, height:CGFloat(MAXFLOAT))
-        let rect = text.boundingRect(with: size, options:.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font], context:nil)
+        let rect = text.boundingRect(with: size, options:.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context:nil)
         
         return rect.size
     }
